@@ -338,7 +338,7 @@ class Board extends React.Component {
       boardRepository,
       data
     } = this.props
-    const { key, ...restProps } = this.props;
+    // const { key, ...restProps } = this.props;
 
     return (
       <BoardWrapper
@@ -356,7 +356,7 @@ class Board extends React.Component {
 
             renderItem={item => (
               <Column
-                {...restProps}
+                {...this.props}
                 key={item.item.data().id.toString()}
                 column={item.item}
                 movingMode={movingMode}
