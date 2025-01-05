@@ -352,9 +352,11 @@ class Board extends React.Component {
             onScrollEndDrag={this.onScrollEnd}
             onScroll={this.cancelMovingSubscription}
             scrollEnabled={!movingMode}
+            const { key, ...restProps } = this.props;
+
             renderItem={item => (
               <Column
-                {...this.props}
+                {...this.restProps}
                 key={item.item.data().id.toString()}
                 column={item.item}
                 movingMode={movingMode}
