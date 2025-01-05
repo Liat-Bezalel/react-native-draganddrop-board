@@ -258,7 +258,7 @@ class Board extends React.Component {
       return
     }
 
-    return () => {
+    return async () => {
       this.unsubscribeFromMovingMode()
 
       if (item.isLocked()) {
