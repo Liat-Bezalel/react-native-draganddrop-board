@@ -243,7 +243,7 @@ class Board extends React.Component {
           draggedItem: item,
           srcColumnId: item.columnId(),
           startingX: x,
-          startingY: dy - boardPositionY - STATUSBAR_HEIGHT - (ios ? 0 : (dy - y))
+          startingY: 0.5*(dy - boardPositionY - STATUSBAR_HEIGHT - (ios ? 0 : (dy - y)))
         })
         this.rotate(MAX_DEG)
       }
