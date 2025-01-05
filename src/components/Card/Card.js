@@ -24,19 +24,19 @@ import {
 } from './Card.styled'
 
 const Card = ({
-  cardBackground,
-  cardBorderRadius,
+  cardBackground = colors.white,
+  cardBorderRadius = 10,
   cardContent,
-  cardDescriptionTextColor,
-  cardDescriptionFontSize,
-  cardDescriptionFontFamily,
-  cardIconColor,
-  cardNameTextColor,
-  cardNameFontSize,
-  cardNameFontFamily,
+  cardDescriptionTextColor = colors.bay,
+  cardDescriptionFontSize = 14,
+  cardDescriptionFontFamily = '',
+  cardIconColor = colors.blurple,
+  cardNameTextColor = colors.blurple,
+  cardNameFontSize = 18,
+  cardNameFontFamily = '',
   hidden,
   item,
-  isCardWithShadow,
+  isCardWithShadow = true,
   onPress,
   onPressIn,
   style
@@ -90,18 +90,18 @@ const Card = ({
   )
 }
 
-Card.defaultProps = {
-  cardBackground: colors.white,
-  cardBorderRadius: 10,
-  cardDescriptionTextColor: colors.bay,
-  cardDescriptionFontSize: 14,
-  cardDescriptionFontFamily: '',
-  cardIconColor: colors.blurple,
-  cardNameTextColor: colors.blurple,
-  cardNameFontSize: 18,
-  cardNameFontFamily: '',
-  isCardWithShadow: true
-}
+// Card.defaultProps = {
+//   cardBackground: colors.white,
+//   cardBorderRadius: 10,
+//   cardDescriptionTextColor: colors.bay,
+//   cardDescriptionFontSize: 14,
+//   cardDescriptionFontFamily: '',
+//   cardIconColor: colors.blurple,
+//   cardNameTextColor: colors.blurple,
+//   cardNameFontSize: 18,
+//   cardNameFontFamily: '',
+//   isCardWithShadow: true
+// }
 
 Card.propTypes = {
   cardBackground: string.isRequired,
