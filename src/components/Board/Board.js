@@ -142,7 +142,7 @@ class Board extends React.Component {
     }
   }
 
-  endMoving = () => {
+  endMoving = async () => {
     try {
       this.setState({ movingMode: false })
       const { draggedItem, pan, srcColumnId } = this.state
@@ -155,7 +155,7 @@ class Board extends React.Component {
       pan.setValue({ x: 0, y: 0 })
       this.setState({ startingX: 0, startingY: 0 })
 
-      return onDragEnd && onDragEnd(boardRepository.columns()[srcColumnId - 1], boardRepository.columns()[destColumnId - 1], draggedItem)
+      return onDragEnd && await onDragEnd(boardRepository.columns()[srcColumnId - 1], boardRepository.columns()[destColumnId - 1], draggedItem)
 
     } catch (error) {
       const { draggedItem, srcColumnId } = this.state
@@ -163,19 +163,19 @@ class Board extends React.Component {
       const destColumnId = draggedItem.columnId()
       this.setState({ movingMode: false, startingX: 0, startingY: 0 })
       console.log("endMoving", error)
-      return onDragEnd && onDragEnd(boardRepository.columns()[srcColumnId - 1], boardRepository.columns()[destColumnId - 1], draggedItem)
+      return onDragEnd && await onDragEnd(boardRepository.columns()[srcColumnId - 1], boardRepository.columns()[destColumnId - 1], draggedItem)
 
     }
   }
 
-  onPanResponderRelease = () => {
+  onPanResponderRelease = async () => {
     const { movingMode } = this.state
     this.x = null
     this.y = null
 
     if (movingMode) {
       this.rotate(0)
-      setTimeout(this.endMoving, 100)
+      setTimeout(await this.endMoving, 100)
     } else if (this.scrolling) {
       this.unsubscribeFromMovingMode()
     }
@@ -250,7 +250,7 @@ class Board extends React.Component {
     }, 200)
   }
 
-  onPress = (columnId, item) => {
+  onPress = async (columnId, item) => {
     const { open } = this.props
     const { movingMode } = this.state
 
@@ -272,7 +272,7 @@ class Board extends React.Component {
           open(item.row())
         }
       } else {
-        this.endMoving()
+        await this.endMoving()
       }
     }
   }
