@@ -250,7 +250,7 @@ class Board extends React.Component {
     }, 200)
   }
 
-  onPress = async (columnId, item) => {
+  onPress = (columnId, item) => {
     const { open } = this.props
     const { movingMode } = this.state
 
@@ -272,7 +272,7 @@ class Board extends React.Component {
           open(item.row())
         }
       } else {
-        await this.endMoving()
+        await this.endMoving();
       }
     }
   }
