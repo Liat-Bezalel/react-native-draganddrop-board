@@ -338,6 +338,7 @@ class Board extends React.Component {
       boardRepository,
       data
     } = this.props
+    const { key, ...restProps } = this.props;
 
     return (
       <BoardWrapper
@@ -352,7 +353,6 @@ class Board extends React.Component {
             onScrollEndDrag={this.onScrollEnd}
             onScroll={this.cancelMovingSubscription}
             scrollEnabled={!movingMode}
-            const { key, ...restProps } = this.props;
 
             renderItem={item => (
               <Column
