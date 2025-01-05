@@ -270,14 +270,14 @@ class Carousel extends Component {
   renderItem = ({ item, index }) => {
     const { renderItem } = this.props
 
-    const specificProps = {
-      key: this.getKeyExtractor(item, index)
-    }
+    // const specificProps = {
+    //   key: this.getKeyExtractor(item, index)
+    // }
 
     return (
       <ItemWrapper
         pointerEvents="box-none"
-        {...specificProps}
+        key={this.getKeyExtractor(item, index)}
       >
         { renderItem({ item, index })}
       </ItemWrapper>
