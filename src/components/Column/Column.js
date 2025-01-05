@@ -224,7 +224,7 @@ class Column extends React.Component {
         {boardRepository
           .items(column.id()).length - 1 === 0 ?
           (emptyComponent
-            ? emptyComponent()
+            ? emptyComponent(column)
             : <EmptyColumn {...this.props} marginTop={columnHeight / 3} />
           )
           : <FlatList
