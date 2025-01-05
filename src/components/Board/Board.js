@@ -356,7 +356,7 @@ class Board extends React.Component {
 
             renderItem={item => (
               <Column
-                {...this.restProps}
+                {...restProps}
                 key={item.item.data().id.toString()}
                 column={item.item}
                 movingMode={movingMode}
