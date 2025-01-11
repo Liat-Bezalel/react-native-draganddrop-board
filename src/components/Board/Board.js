@@ -20,7 +20,6 @@ import Column from '../Column/Column'
 import Card from '../Card/Card'
 import Carousel from '../Carousel/Carousel'
 import { BoardWrapper } from './Board.styled'
-import { I18nManager } from 'react-native';
 
 const MAX_RANGE = 100
 const MAX_DEG = 30
@@ -79,8 +78,7 @@ class Board extends React.Component {
         this.y = event.nativeEvent.pageY
 
         // Flip horizontal movement for RTL
-        console.log('RTL', I18nManager.isRTL);
-        const dx = I18nManager.isRTL ? -gesture.dx : gesture.dx;
+        const dx = -gesture.dx;
 
         Animated.event([
           null, { dx: pan.x, dy: pan.y }
