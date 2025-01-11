@@ -77,6 +77,10 @@ class Board extends React.Component {
         this.x = event.nativeEvent.pageX
         this.y = event.nativeEvent.pageY
 
+        // Flip horizontal movement for RTL
+        console.log('RTL', I18nManager.isRTL);
+        const dx = I18nManager.isRTL ? -gesture.dx : gesture.dx;
+
         Animated.event([
           null, { dx: pan.x, dy: pan.y }
         ], {
@@ -84,10 +88,10 @@ class Board extends React.Component {
           useNativeDriver: false,
         })(event, gesture)
 
-        if (startingX + gesture.dx < -50 && gesture.vx < 0) {
+        if (startingX + dx < -50 && gesture.vx < 0) {
           this.carousel.snapToPrev()
         }
-        if (startingX + gesture.dx + CARD_WIDTH - 50 > deviceWidth && gesture.vx > 0) {
+        if (startingX + dx + CARD_WIDTH - 50 > deviceWidth && gesture.vx > 0) {
           this.carousel.snapToNext()
         }
 
