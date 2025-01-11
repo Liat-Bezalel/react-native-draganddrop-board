@@ -292,7 +292,7 @@ class Carousel extends Component {
     } = this.props
 
     const containerStyle = [
-      { width: sliderWidth, flexDirection: 'row' }
+      { width: sliderWidth, flexDirection: 'row-reverse' }
     ]
     const contentContainerStyle = {
       paddingLeft: oneColumn ? 16 : 8,
