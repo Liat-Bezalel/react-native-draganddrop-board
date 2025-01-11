@@ -20,6 +20,7 @@ import Column from '../Column/Column'
 import Card from '../Card/Card'
 import Carousel from '../Carousel/Carousel'
 import { BoardWrapper } from './Board.styled'
+import { I18nManager } from 'react-native';
 
 const MAX_RANGE = 100
 const MAX_DEG = 30
